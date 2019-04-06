@@ -14,7 +14,7 @@
   </div>
   <div class="navbar-collapse collapse w-100 order-3">
     <ul class="navbar-nav ml-auto">
-      <ng-container *ngIf="!this.authService.isAuthenticated(); else signout">
+      <ng-container *ngIf="!isAuthenticated(); else signout">
         <li class="nav-item">
           <a class="nav-item nav-link" routerLinkActive="active" routerLink="/signup">Sign Up</a>
         </li>
