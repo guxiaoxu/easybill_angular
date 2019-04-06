@@ -14,7 +14,7 @@ Database: PostgreSQL
 ### Deployment
 GitHub pages
 
-Google Cloud App Engine
+Heroku Dyno
 
 ### Code
 [Angular @Github](https://github.com/guxiaoxu/easybill_angular)
