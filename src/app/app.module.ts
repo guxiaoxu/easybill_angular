@@ -1,6 +1,7 @@
 // base modules
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 // app modules
 import { AppComponent } from './app.component';
@@ -30,6 +31,7 @@ import { CardComponent } from './card/card.component';
   imports: [
     BrowserModule,
     HttpClientModule,
+    ReactiveFormsModule,
     AppRouteModule,
   ],
   providers: [

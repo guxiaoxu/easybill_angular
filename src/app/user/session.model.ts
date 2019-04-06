@@ -1,7 +1,7 @@
 export class Session {
   public sessionId: SessionId;
   public expire: Date;
-  public userNickname: string;
+  public userNickName: string;
 }
 
 export class SessionId {

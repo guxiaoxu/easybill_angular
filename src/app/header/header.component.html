@@ -1,0 +1,35 @@
+<nav class="navbar navbar-expand-md  navbar-dark bg-primary">
+  <div class="navbar-collapse collapse w-100 order-1 order-md-0">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-item nav-link" routerLinkActive="active" routerLink="/bill">Bill</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-item nav-link" routerLinkActive="active" routerLink="/card">Card</a>
+      </li>
+    </ul>
+  </div>
+  <div class="mx-auto order-0">
+    <a class="navbar-brand mx-auto" href="#">EasyBill</a>
+  </div>
+  <div class="navbar-collapse collapse w-100 order-3">
+    <ul class="navbar-nav ml-auto">
+      <ng-container *ngIf="!this.authService.isAuthenticated(); else signout">
+        <li class="nav-item">
+          <a class="nav-item nav-link" routerLinkActive="active" routerLink="/signup">Sign Up</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-item nav-link" routerLinkActive="active" routerLink="/signin">Sign In</a>
+        </li>
+      </ng-container>
+      <ng-template #signout>
+        <li class="nav-item">
+          <a class="nav-item nav-link active">User: {{ nickName }}</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-item nav-link" style="cursor: pointer" (click)="onSignOut()">Sign Out</a>
+        </li>
+      </ng-template>
+    </ul>
+  </div>
+</nav>

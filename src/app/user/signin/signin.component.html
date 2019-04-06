@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+    <br/>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+      <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="email">E-Mail</label>
+          <input type="email" id="email" class="form-control" formControlName="email">
+          <ng-container *ngIf="signupForm.get('email').touched && signupForm.get('email').errors">
+            <span class="text-muted" *ngIf="signupForm.get('email').errors.required">Email is required!</span>
+            <span class="text-muted" *ngIf="signupForm.get('email').errors.email">Please enter a valid email!</span>
+          </ng-container>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password"  id="password" class="form-control" formControlName="password">
+          <ng-container *ngIf="signupForm.get('password').touched && signupForm.get('password').errors">
+            <span class="text-muted" *ngIf="signupForm.get('password').errors.required">Password is required!</span>
+          </ng-container>
+          <span class="text-muted" *ngIf="authMsg !== ''">{{ authMsg }}</span>
+        </div>
+        <button class="btn btn-primary" type="submit" [disabled]="signupForm.invalid">Sign In</button>
+      </form>
+    </div>
+  </div>
+</div>
