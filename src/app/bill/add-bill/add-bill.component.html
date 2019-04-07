@@ -1,0 +1,60 @@
+<div class="container">
+  <div class="row">
+    <br/>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+      <form [formGroup]="addBillForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="type">Bill Type</label>
+          <select id="type" class="form-control" formControlName="type">
+            <option value="Income">Income</option>
+            <option value="Outcome">Outcome</option>
+          </select>
+          <ng-container *ngIf="addBillForm.get('type').touched && addBillForm.get('type').errors">
+            <span class="text-muted" *ngIf="addBillForm.get('type').errors.required">You must select a type!</span>
+          </ng-container>
+        </div>
+        <div class="form-group">
+          <label for="billTime">Time</label>
+          <input type="datetime-local" id="billTime" class="form-control" formControlName="billTime">
+          <ng-container *ngIf="addBillForm.get('billTime').touched && addBillForm.get('billTime').errors">
+            <span class="text-muted" *ngIf="addBillForm.get('billTime').errors.required">The time of the bill is required!</span>
+          </ng-container>
+        </div>
+        <div class="form-group">
+          <label for="cardId">Method</label>
+          <select id="cardId" class="form-control" formControlName="cardId">
+            <option value="">CASH</option>
+            <option *ngFor="let card of cardList" [value]=card.id>{{card.displayAlias}}</option>
+          </select>
+          <ng-container *ngIf="addBillForm.get('cardId').touched && addBillForm.get('cardId').errors">
+            <span class="text-muted" *ngIf="addBillForm.get('cardId').errors.required">You must select a method!</span>
+          </ng-container>
+        </div>
+        <div class="form-group">
+          <label for="amount">Amount</label>
+          <input type="number" id="amount" class="form-control" formControlName="amount">
+          <ng-container *ngIf="addBillForm.get('amount').touched && addBillForm.get('amount').errors">
+            <span class="text-muted" *ngIf="addBillForm.get('amount').errors.required">Money amount is required!</span>
+          </ng-container>
+        </div>
+        <div class="form-group">
+          <label for="category">Category</label>
+          <input type="text" list="categories" id="category" class="form-control" formControlName="category">
+          <datalist id="categories">
+            <option>Transfer</option>
+            <option>Dine</option>
+            <option>Grocery</option>
+            <option>Pharmacy</option>
+            <option>Transit</option>
+            <option>Vacation</option>
+            <option>Other</option>
+          </datalist>
+        </div>
+        <button class="btn btn-primary" type="submit" [disabled]="addBillForm.invalid">Add Bill</button>&nbsp;
+        <button type="button" class="btn btn-secondary" (click)="onBack()">&lt;- Back</button>
+      </form>
+    </div>
+  </div>
+</div>

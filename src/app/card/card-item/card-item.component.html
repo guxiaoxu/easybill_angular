@@ -1,0 +1,10 @@
+<li
+    class="list-group-item"
+    [ngClass]="getTypeFillClasses(card.type)">
+  <div class="row">
+    <span class="col-2 badge" [ngClass]="getTypeBadgeClasses(card.type)">{{ card.type }}</span>
+    <strong class="col-5">{{ card.alias }}</strong>
+    <span class="col-3">Ends in: {{ card.lastDigits }}</span>
+    <span class="col-2"><button type="button" class="btn btn-outline-danger btn-sm" (click)="onDelete()">Delete</button></span>
+  </div>
+</li>

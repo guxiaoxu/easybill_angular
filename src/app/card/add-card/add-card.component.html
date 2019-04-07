@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="row">
+    <br/>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+      <form [formGroup]="addCardForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="type">Card Type</label>
+          <select id="type" class="form-control" formControlName="type">
+            <option value="DEBIT">Debit Card</option>
+            <option value="CREDIT">Credit Card</option>
+          </select>
+          <ng-container *ngIf="addCardForm.get('type').touched && addCardForm.get('type').errors">
+            <span class="text-muted" *ngIf="addCardForm.get('type').errors.required">You must select a type!</span>
+          </ng-container>
+        </div>
+        <div class="form-group">
+          <label for="lastDigits">Last 4 Digits</label>
+          <input type="text"  id="lastDigits" class="form-control" formControlName="lastDigits">
+          <ng-container *ngIf="addCardForm.get('lastDigits').touched && addCardForm.get('lastDigits').errors">
+            <span class="text-muted" *ngIf="addCardForm.get('lastDigits').errors.required">Last 4 Digits is Required!</span>
+            <span class="text-muted" *ngIf="!addCardForm.get('lastDigits').errors.required">There must be 4 digits!</span>
+          </ng-container>
+        </div>
+        <div class="form-group">
+          <label for="alias">Alias (Optional)</label>
+          <input type="text"  id="alias" class="form-control" formControlName="alias">
+          <ng-container *ngIf="addCardForm.get('alias').touched && addCardForm.get('alias').errors">
+            <span class="text-muted" *ngIf="addCardForm.get('alias').errors.maxlength">Card alias is too long!</span>
+          </ng-container>
+        </div>
+        <button class="btn btn-primary" type="submit" [disabled]="addCardForm.invalid">Add Card</button>&nbsp;
+        <button type="button" class="btn btn-secondary" (click)="onBack()">&lt;- Back</button>
+      </form>
+    </div>
+  </div>
+</div>

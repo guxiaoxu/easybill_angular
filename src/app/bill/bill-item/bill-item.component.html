@@ -1,0 +1,15 @@
+<li
+  class="list-group-item"
+  [ngClass]="getTypeFillClasses(bill.type)">
+  <div class="row">
+    <span class="col-1 badge" [ngClass]="getTypeBadgeClasses(bill.type)">{{ bill.type }}</span>
+    <span class="col col-2h5">{{ bill.billTime | date:'MMM d, y, H:mm' }}</span>
+    <span class="col-2">{{ method }}</span>
+    <span class="col-2">{{ bill.amount | currency:'USD':'symbol':'1.2-2' }}</span>
+    <span class="col-2">{{ bill.category }}</span>
+    <div class="col col-2h5 btn-group-sm" role="group" aria-label="Actions">
+      <a class="btn btn-outline-info" routerLink="{{bill.id}}/edit">Update</a>
+      <button type="button" class="btn btn-outline-danger" (click)="onDelete()">Delete</button>
+    </div>
+  </div>
+</li>

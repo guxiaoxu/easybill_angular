@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="row">
+    <br/>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+      <form (ngSubmit)="onSubmit()" #f="ngForm">
+        <div class="form-group">
+          <span>Bill Type:&nbsp;{{bill.type}}</span>
+        </div>
+        <div class="form-group">
+          <label for="billTime">Time</label>
+          <input type="datetime-local" id="billTime" name="billTime" class="form-control" [(ngModel)]="bill.billTime" required>
+        </div>
+        <div class="form-group">
+          <span>>Method:&nbsp;{{method}}</span>
+        </div>
+        <div class="form-group">
+          <label for="amount">Amount</label>
+          <input type="number" id="amount" name="amount" class="form-control" [(ngModel)]="bill.amount" required>
+        </div>
+        <div class="form-group">
+          <label for="category">Category</label>
+          <input type="text" list="categories" id="category" name="category" class="form-control" [(ngModel)]="bill.category">
+          <datalist id="categories">
+            <option>Transfer</option>
+            <option>Dine</option>
+            <option>Grocery</option>
+            <option>Pharmacy</option>
+            <option>Transit</option>
+            <option>Vacation</option>
+            <option>Other</option>
+          </datalist>
+        </div>
+        <button class="btn btn-primary" type="submit" [disabled]="f.invalid">Update Bill</button>&nbsp;
+        <button type="button" class="btn btn-secondary" (click)="onBack()">&lt;- Back</button>
+      </form>
+    </div>
+  </div>
+</div>
