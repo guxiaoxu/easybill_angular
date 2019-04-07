@@ -3,9 +3,8 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-import { AuthenticationService } from '../authentication.service';
 import { User } from '../user.model';
-
+import { AuthenticationService } from '../authentication.service';
 
 @Component({
   selector: 'app-signup',

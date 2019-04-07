@@ -1,10 +1,8 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
-import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {AuthenticationService} from '../authentication.service';
-import {User} from '../user.model';
-import {Observable} from 'rxjs';
-import {map} from 'rxjs/operators';
-import {Session} from '../session.model';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+
+import { User } from '../user.model';
+import { AuthenticationService } from '../authentication.service';
 
 @Component({
   selector: 'app-signin',
@@ -36,7 +34,7 @@ export class SigninComponent implements OnInit, OnDestroy {
   }
 
   onSubmit() {
-    console.log(this.signupForm);
+    // console.log(this.signupForm);
     const user: User = this.signupForm.value;
     this.authService.singIn(user);
   }

@@ -1,3 +1,31 @@
-<p>
-  Home!
-</p>
+<div class="container">
+  <div class="row">
+    <br/>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-lg-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+      <ul class="list-group">
+        <li
+          class="list-group-item">
+          <div class="row">
+            <span class="col-1">Type</span>
+            <span class="col col-2h5">Bill Time</span>
+            <span class="col-2">Method</span>
+            <span class="col-2">Amount</span>
+            <span class="col-2">Category</span>
+            <span class="col col-2h5"></span>
+          </div>
+        </li>
+        <app-bill-item *ngFor="let bill of billList" [bill]="bill"></app-bill-item>
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <hr/>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-lg-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+      <a class="btn btn-primary" routerLink="add" role="button">Log New Bill</a>
+    </div>
+  </div>
+</div>

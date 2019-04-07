@@ -1,6 +1,7 @@
 import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
-import { AuthenticationService } from './authentication.service';
 import { Observable } from 'rxjs';
+
+import { AuthenticationService } from './authentication.service';
 
 export class AuthInterceptor implements HttpInterceptor {
   constructor(private authService: AuthenticationService) {}
