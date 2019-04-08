@@ -1,3 +1,16 @@
-<p>
-  TODO: TOTALS
-</p>
+<ul class="list-group">
+  <li class="list-group-item">
+    <div class="row">
+      <span class="col-2 badge badge-success">Total Income:</span>
+      <span class="col-4">{{ totalIncome | currency:'USD':'symbol':'1.2-2' }}</span>
+      <span class="col-2 badge badge-danger">Total Outcome:</span>
+      <span class="col-4">{{ totalOutcome | currency:'USD':'symbol':'1.2-2' }}</span>
+    </div>
+  </li>
+  <li class="list-group-item" [ngClass]="balance >= 0 ? 'list-group-item-success' : 'list-group-item-warning'">
+    <div class="row">
+      <span class="col-4 badge badge-info">Overall Balance:</span>
+      <strong class="col-8" [ngStyle]="{color: balance >= 0 ? 'green' : 'red'}">{{ balance | currency:'USD':'symbol':'1.2-2' }}</strong>
+    </div>
+  </li>
+</ul>
