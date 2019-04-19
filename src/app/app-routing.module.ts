@@ -11,12 +11,6 @@ import { EditBillComponent } from './bill/edit-bill/edit-bill.component';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: 'bill', pathMatch: 'full', canActivate: [AuthGuardService]},
-  /*{ path: 'singu', children: [
-    { path: 'signup', component: MessageComponent, pathMatch: 'full', data: { msg: 'Please select a recipe!'} }
-    { path: 'new', component: RecipeEditComponent},
-    { path: ':index', component: RecipeDetailComponent },
-    { path: ':index/edit', component: RecipeEditComponent},
-  ] },*/
   { path: 'signup', component: SignupComponent },
   { path: 'signin', component: SigninComponent },
   { path: 'card', pathMatch: 'full', component: CardComponent, canActivate: [AuthGuardService]},
